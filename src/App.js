@@ -10,7 +10,7 @@ import Order from "./components/order/order";
 function App() {
   return (
     <div>
-      <NavBar></NavBar>
+      <Route path="/" component={NavBar}></Route>
 
       <Route path="/" exact component={Shop}></Route>
       <Route path="/cart" exact component={Cart}></Route>

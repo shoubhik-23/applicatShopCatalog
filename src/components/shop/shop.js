@@ -8,6 +8,7 @@ import {
   DialogTitle,
   FormControl,
   Grid,
+  InputAdornment,
   InputLabel,
   Menu,
   MenuItem,
@@ -17,13 +18,15 @@ import {
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import ShopCard from "./shopCard";
+import SearchIcon from "@material-ui/icons/Search";
 import Logo from "../assets/images/redmi6.png";
+import K20 from "../assets/images/k20.png";
+
 import {
   FilterListOutlined,
   HighlightOff,
   ImportExport,
 } from "@material-ui/icons";
-import NavbarComponent from "../navbar/NavBarComp";
 import { style } from "./style";
 
 const Shop = (props) => {
@@ -50,80 +53,6 @@ const Shop = (props) => {
   const handleCloseDialog = () => {
     setOpen(false);
   };
-  const [cardArray, setCardArray] = useState([
-    {
-      id: 1,
-      brand: "Xiaomi",
-      name: "Redmi6 Pro",
-      price: 9000,
-      image: Logo,
-      ram: 2,
-      os: "A",
-    },
-    {
-      id: 2,
-      brand: "Xiaomi",
-      name: "RedmiK20 Pro",
-      price: 25000,
-      image: Logo,
-      os: "A",
-      ram: 8,
-    },
-    {
-      id: 2,
-      brand: "Apple",
-      name: "S2",
-      price: 25000,
-      image: Logo,
-      ram: 4,
-      os: "I",
-    },
-    {
-      id: 2,
-      brand: "Samsung",
-      name: "S2",
-      price: 25000,
-      image: Logo,
-      ram: 4,
-      os: "A",
-    },
-    {
-      id: 2,
-      brand: "Apple",
-      name: "S2",
-      price: 25000,
-      image: Logo,
-      ram: 4,
-      os: "I",
-    },
-    {
-      id: 2,
-      brand: "OnePlus",
-      name: "S2",
-      price: 25000,
-      image: Logo,
-      ram: 4,
-      os: "A",
-    },
-    {
-      id: 2,
-      brand: "OnePlus",
-      name: "S2",
-      price: 25000,
-      image: Logo,
-      ram: 4,
-      os: "A",
-    },
-    {
-      id: 2,
-      brand: "OnePlus",
-      name: "S2",
-      price: 25000,
-      image: Logo,
-      ram: 4,
-      os: "A",
-    },
-  ]);
   const [visibleArray, setVisibleArray] = useState([
     {
       id: 1,
@@ -139,65 +68,148 @@ const Shop = (props) => {
       brand: "Xiaomi",
       name: "RedmiK20 Pro",
       price: 25000,
-      image: Logo,
+      image: K20,
       os: "A",
       ram: 8,
     },
     {
-      id: 2,
+      id: 3,
       brand: "Apple",
-      name: "S2",
-      price: 25000,
-      image: Logo,
+      name: "Iphone 5",
+      price: 25400,
+      image: K20,
       ram: 4,
       os: "I",
     },
     {
-      id: 2,
+      id: 4,
       brand: "Samsung",
-      name: "S2",
-      price: 25000,
+      name: "Galaxy s",
+      price: 20000,
       image: Logo,
-      ram: 4,
+      ram: 6,
       os: "A",
     },
     {
-      id: 2,
-      brand: "Apple",
-      name: "S2",
-      price: 25000,
-      image: Logo,
+      id: 5,
+      brand: "Samsung",
+      name: "Galaxy J2",
+      price: 7000,
+      image: K20,
       ram: 4,
       os: "I",
     },
     {
-      id: 2,
+      id: 6,
       brand: "OnePlus",
-      name: "S2",
-      price: 25000,
+      name: "3T",
+      price: 30000,
       image: Logo,
+      ram: 6,
+      os: "A",
+    },
+    {
+      id: 7,
+      brand: "OnePlus",
+      name: "2T",
+      price: 15000,
+      image: K20,
       ram: 4,
       os: "A",
     },
     {
-      id: 2,
-      brand: "OnePlus",
-      name: "S2",
-      price: 25000,
+      id: 8,
+      brand: "Xiaomi",
+      name: "Redmi 3s",
+      price: 7000,
       image: Logo,
-      ram: 4,
-      os: "A",
-    },
-    {
-      id: 2,
-      brand: "OnePlus",
-      name: "S2",
-      price: 25000,
-      image: Logo,
-      ram: 4,
+      ram: 2,
       os: "A",
     },
   ]);
+
+  const [cardArray, setCardArray] = useState([
+    {
+      id: 1,
+      brand: "Xiaomi",
+      name: "Redmi6 Pro",
+      price: 9000,
+      image: Logo,
+      ram: 2,
+      os: "A",
+    },
+    {
+      id: 2,
+      brand: "Xiaomi",
+      name: "RedmiK20 Pro",
+      price: 25000,
+      image: K20,
+      os: "A",
+      ram: 8,
+    },
+    {
+      id: 3,
+      brand: "Apple",
+      name: "Iphone 5",
+      price: 25400,
+      image: K20,
+      ram: 4,
+      os: "I",
+    },
+    {
+      id: 4,
+      brand: "Samsung",
+      name: "Galaxy s",
+      price: 20000,
+      image: Logo,
+      ram: 6,
+      os: "A",
+    },
+    {
+      id: 5,
+      brand: "Samsung",
+      name: "Galaxy J2",
+      price: 7000,
+      image: K20,
+      ram: 4,
+      os: "I",
+    },
+    {
+      id: 6,
+      brand: "OnePlus",
+      name: "3T",
+      price: 30000,
+      image: Logo,
+      ram: 6,
+      os: "A",
+    },
+    {
+      id: 7,
+      brand: "OnePlus",
+      name: "2T",
+      price: 15000,
+      image: K20,
+      ram: 4,
+      os: "A",
+    },
+    {
+      id: 8,
+      brand: "Xiaomi",
+      name: "Redmi 3s",
+      price: 7000,
+      image: Logo,
+      ram: 2,
+      os: "A",
+    },
+  ]);
+  const resetChanges = () => {
+    setVisibleArray([...cardArray]);
+    setBrand("");
+    setRam("");
+    setOs("");
+
+    handleCloseDialog();
+  };
 
   const submitChanges = () => {
     let temp = [...cardArray];
@@ -209,6 +221,9 @@ const Shop = (props) => {
       setVisibleArray(temp);
     } else if (brand == "Apple") {
       temp = temp.filter((el) => el.brand === "Apple");
+      setVisibleArray(temp);
+    } else if (brand == "OnePlus") {
+      temp = temp.filter((el) => el.brand === "OnePlus");
       setVisibleArray(temp);
     }
     if (ram == 2) {
@@ -231,7 +246,6 @@ const Shop = (props) => {
 
     handleCloseDialog();
   };
-  console.log(visibleArray);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -251,7 +265,21 @@ const Shop = (props) => {
     setVisibleArray(temp);
     setAnchorEl(null);
   };
-  console.log(cardArray);
+  const onSearchHandle = (e) => {
+    if (e.target.value) {
+      let filter = cardArray.filter((item) => {
+        return (
+          item.brand !== null &&
+          (item.brand.toLowerCase().indexOf(e.target.value.toLowerCase()) >
+            -1 ||
+            item.name.toLowerCase().indexOf(e.target.value.toLowerCase()) > -1)
+        );
+      });
+      setVisibleArray(filter);
+    } else {
+      setVisibleArray(cardArray);
+    }
+  };
   return (
     <>
       <Grid
@@ -261,6 +289,23 @@ const Shop = (props) => {
           justifyContent: "space-evenly",
         }}
       >
+        <Grid item xs={6} s>
+          <TextField
+            className={classes.searchField}
+            onChange={onSearchHandle}
+            size="small"
+            fullWidth
+            variant="outlined"
+            label="Explore"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <SearchIcon></SearchIcon>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Grid>
         <Grid
           item
           xs={12}
@@ -327,7 +372,7 @@ const Shop = (props) => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Grid container spacing={3} style={{ paddingRight: "30px" }}>
+                <Grid container spacing={3} style={{}}>
                   <Grid item xs={6}>
                     <FormControl
                       fullWidth
@@ -349,6 +394,7 @@ const Shop = (props) => {
                         <MenuItem value={"Xiaomi"}>Xiaomi</MenuItem>
                         <MenuItem value={"Samsung"}>Samsung</MenuItem>
                         <MenuItem value={"Apple"}>Apple</MenuItem>
+                        <MenuItem value={"OnePlus"}>OnePlus</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>
@@ -411,12 +457,8 @@ const Shop = (props) => {
                   marginTop: "30px",
                 }}
               >
-                <Button
-                  variant="contained"
-                  size="small"
-                  onClick={handleCloseDialog}
-                >
-                  Cancel
+                <Button variant="contained" size="small" onClick={resetChanges}>
+                  Reset
                 </Button>
                 <Button
                   variant="contained"

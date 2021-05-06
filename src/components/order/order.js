@@ -7,7 +7,6 @@ import OrderCard from "./orderCard";
 import ForwardIcon from "@material-ui/icons/Forward";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 import HomeIcon from "@material-ui/icons/Home";
-import NavbarComponent from "../navbar/NavBarComp";
 
 function Order(props) {
   const state = useSelector((state) => state.orderItems);

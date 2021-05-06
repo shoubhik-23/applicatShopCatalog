@@ -14,7 +14,6 @@ import SuccessIcon from "../assets/images/success.svg";
 import ErrorIcon from "../assets/images/error.svg";
 
 const MessageComponent = (props) => {
-  console.log(props.open);
   return (
     <Dialog
       open={props.open}

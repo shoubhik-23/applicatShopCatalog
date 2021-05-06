@@ -62,7 +62,6 @@ function CheckoutDialog(props) {
                     className={classes.searchField}
                     size="small"
                     fullWidth
-                    placeholder="Product Engineer"
                     variant="outlined"
                     label="Firse Name"
                   />
@@ -72,7 +71,6 @@ function CheckoutDialog(props) {
                     className={classes.searchField}
                     size="small"
                     fullWidth
-                    placeholder="Product Engineer"
                     variant="outlined"
                     label="Last Name"
                   />

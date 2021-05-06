@@ -7,7 +7,6 @@ import ForwardIcon from "@material-ui/icons/Forward";
 import { useHistory } from "react-router";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import CheckoutDialog from "./checkoutDialog";
-import NavbarComponent from "../navbar/NavBarComp";
 
 function Cart(props) {
   const history = useHistory();
