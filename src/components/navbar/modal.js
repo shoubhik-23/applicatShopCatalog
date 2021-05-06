@@ -10,12 +10,15 @@ const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
     alignItems: "center",
+
     justifyContent: "center",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
 
     boxShadow: theme.shadows[5],
+    borderRadius: "10px",
+
     padding: theme.spacing(2, 4, 3),
   },
 }));
@@ -52,12 +55,12 @@ export default function TransitionsModal(props) {
               ></MailOutlineIcon>
               <p id="transition-modal-description">shoubhik2396@gmail.com</p>
             </Box>
-            <Box style={{ display: "flex", justifyContent: "space-between" }}>
+            <Box style={{ display: "flex", justifyContent: "left" }}>
               <PhoneIcon
                 style={{ color: "rgb(232, 119, 22)", marginRight: 10 }}
                 fontSize="small"
               ></PhoneIcon>
-              <p id="transition-modal-description">shoubhik2396@gmail.com</p>
+              <p id="transition-modal-description">99XXXXXX18</p>
             </Box>
           </div>
         </Fade>
