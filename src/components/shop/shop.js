@@ -12,6 +12,7 @@ import {
   Menu,
   MenuItem,
   Select,
+  TextField,
   Typography,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
@@ -23,7 +24,11 @@ import {
   ImportExport,
 } from "@material-ui/icons";
 import NavbarComponent from "../navbar/NavBarComp";
+import { style } from "./style";
+
 const Shop = (props) => {
+  const classes = style();
+
   const [brand, setBrand] = React.useState("");
   const [ram, setRam] = useState("");
   const [os, setOs] = useState("");
@@ -299,77 +304,131 @@ const Shop = (props) => {
             </Grid>
           );
         })}
-        <Dialog
-          onClose={handleCloseDialog}
-          aria-labelledby="customized-dialog-title"
-          open={open}
-        >
-          <DialogTitle id="customized-dialog-title" onClose={handleCloseDialog}>
-            <Box style={{ display: "flex" }}>
-              <Typography> Filter</Typography>{" "}
+        <Dialog maxWidth="xs" open={open} onClose={handleCloseDialog}>
+          <DialogTitle style={{ padding: "28px 40px 40px 60px " }}>
+            <Grid item xs={12} style={{ textAlign: "end" }}>
               <HighlightOff
-                style={{ marginLeft: 200 }}
                 onClick={handleCloseDialog}
-              ></HighlightOff>
-            </Box>
-          </DialogTitle>
-          <DialogContent dividers>
-            <Grid container>
-              <Grid item xs={6}>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Brand</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={brand}
-                    onChange={handleChangeBrand}
-                  >
-                    <MenuItem value={"Xiaomi"}>Xiaomi</MenuItem>
-                    <MenuItem value={"Samsung"}>Samsung</MenuItem>
-                    <MenuItem value={"Apple"}>Apple</MenuItem>
-                  </Select>
-                </FormControl>
+                style={{ color: "#DAD9D8" }}
+              />
+            </Grid>
+            <Grid container style={{ paddingRight: 20 }}>
+              <Grid
+                item
+                xs={12}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginBottom: 30,
+                }}
+              >
+                <Typography style={{ fontSize: "22px", fontWeight: 500 }}>
+                  Filter
+                </Typography>
               </Grid>
-              <Grid item xs={6}>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">RAM</InputLabel>
-                  <Select
-                    fullWidth
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={ram}
-                    onChange={handleChangeRam}
-                  >
-                    <MenuItem value={2}>2GB</MenuItem>
-                    <MenuItem value={4}>4GB</MenuItem>
-                    <MenuItem value={6}>6GB</MenuItem>
-                  </Select>
-                </FormControl>
+              <Grid item>
+                <Grid container spacing={3} style={{ paddingRight: "30px" }}>
+                  <Grid item xs={6}>
+                    <FormControl
+                      fullWidth
+                      size="small"
+                      variant="outlined"
+                      className={classes.searchField}
+                    >
+                      <InputLabel id="demo-simple-select-outlined-label">
+                        Brand
+                      </InputLabel>
+                      <Select
+                        fullWidth
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        label="Brand"
+                        value={brand}
+                        onChange={handleChangeBrand}
+                      >
+                        <MenuItem value={"Xiaomi"}>Xiaomi</MenuItem>
+                        <MenuItem value={"Samsung"}>Samsung</MenuItem>
+                        <MenuItem value={"Apple"}>Apple</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <FormControl
+                      fullWidth
+                      size="small"
+                      variant="outlined"
+                      className={classes.searchField}
+                    >
+                      <InputLabel id="demo-simple-select-outlined-label">
+                        Ram
+                      </InputLabel>
+                      <Select
+                        fullWidth
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        label="Ram"
+                        value={ram}
+                        onChange={handleChangeRam}
+                      >
+                        <MenuItem value={2}>2GB</MenuItem>
+                        <MenuItem value={4}>4GB</MenuItem>
+                        <MenuItem value={6}>6GB</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <FormControl
+                      fullWidth
+                      size="small"
+                      variant="outlined"
+                      className={classes.searchField}
+                    >
+                      <InputLabel id="demo-simple-select-outlined-label">
+                        OS
+                      </InputLabel>
+                      <Select
+                        fullWidth
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        label="OS"
+                        value={os}
+                        onChange={handleChangeOS}
+                      >
+                        <MenuItem value={"A"}>Android</MenuItem>
+                        <MenuItem value={"I"}>IOS</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                </Grid>
               </Grid>
 
-              <Grid item xs={12}>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">
-                    Operating System
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={os}
-                    onChange={handleChangeOS}
-                  >
-                    <MenuItem value={"A"}>Android</MenuItem>
-                    <MenuItem value={"I"}>IOS</MenuItem>
-                  </Select>
-                </FormControl>
+              <Grid
+                item
+                xs={12}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  marginTop: "30px",
+                }}
+              >
+                <Button
+                  variant="contained"
+                  size="small"
+                  onClick={handleCloseDialog}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                  onClick={submitChanges}
+                >
+                  Proceed
+                </Button>
               </Grid>
             </Grid>
-          </DialogContent>
-          <DialogActions>
-            <Button autoFocus onClick={submitChanges} color="primary">
-              Save changes
-            </Button>
-          </DialogActions>
+          </DialogTitle>
         </Dialog>
       </Grid>
     </>
