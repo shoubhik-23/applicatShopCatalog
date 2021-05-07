@@ -39,7 +39,6 @@ function NavBar(props) {
       <Navbar
         bg="dark"
         variant="dark"
-        expand="lg"
         style={{ marginBottom: 50, width: "100%" }}
       >
         <Navbar.Brand>
