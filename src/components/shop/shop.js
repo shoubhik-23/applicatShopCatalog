@@ -172,7 +172,7 @@ const Shop = (props) => {
       price: 7000,
       image: K20,
       ram: 4,
-      os: "I",
+      os: "A",
     },
     {
       id: 6,
